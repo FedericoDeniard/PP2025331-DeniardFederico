@@ -1,0 +1,53 @@
+#series .card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#series .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.card p {
+  font-size: 1em;
+  margin: 8px 0;
+  color: #666;
+  text-align: center;
+}
+
+.card .card__id {
+  font-size: 0.9em;
+  color: #999;
+  text-align: left;
+}
+
+.card a {
+  text-decoration: none;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.card__save-button {
+  margin-top: 10px;
+}

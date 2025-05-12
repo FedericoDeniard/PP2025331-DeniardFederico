@@ -16,15 +16,43 @@ main {
 
 header {
   grid-area: header;
-  /* background-color: red; */
 }
 
 #panel-izquierda {
   grid-area: nav;
-  /* background-color: blue; */
 }
 
 #principal {
   grid-area: principal;
-  /* background-color: green; */
+
+  display: flex;
+  flex-direction: column;
+}
+
+#series {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+#principal .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  #series {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  #series {
+    grid-template-columns: 1fr;
+  }
 }

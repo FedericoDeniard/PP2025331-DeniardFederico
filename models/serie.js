@@ -5,7 +5,7 @@ export class Serie {
   language;
   genres;
   image;
-  // id: number, url: string, name: string, language: string, genres: string[], image: string
+
   constructor({ id, url, name, language, genres, image }) {
     this.#validateSerie({ id, url, name, language, genres, image });
 
@@ -35,7 +35,45 @@ export class Serie {
 
   createHtmlElement() {
     const div = document.createElement("div");
-    div.textContent = this.name;
+    div.classList.add("card");
+
+    const linkElement = document.createElement("a");
+    linkElement.href = this.url;
+    linkElement.target = "_blank";
+    linkElement.classList.add("card__link");
+
+    const idElement = document.createElement("p");
+    idElement.textContent = `ID: ${this.id}`;
+    idElement.classList.add("card__id");
+    linkElement.appendChild(idElement);
+
+    const nameElement = document.createElement("h2");
+    nameElement.textContent = this.name;
+    nameElement.classList.add("card__name");
+    linkElement.appendChild(nameElement);
+
+    const languageElement = document.createElement("p");
+    languageElement.textContent = `Language: ${this.language}`;
+    languageElement.classList.add("card__language");
+    linkElement.appendChild(languageElement);
+
+    const genresElement = document.createElement("p");
+    genresElement.textContent = `Genres: ${this.genres.join(", ")}`;
+    genresElement.classList.add("card__genres");
+    linkElement.appendChild(genresElement);
+
+    const imageElement = document.createElement("img");
+    imageElement.src = this.image;
+    imageElement.classList.add("card__image");
+    linkElement.appendChild(imageElement);
+
+    div.appendChild(linkElement);
+
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Guardar";
+    saveButton.classList.add("card__save-button", "button");
+
+    div.appendChild(saveButton);
 
     return div;
   }
