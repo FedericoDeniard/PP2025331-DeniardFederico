@@ -9,6 +9,10 @@ export class View {
 
     this.nextButton = this.$("siguiente");
     this.prevButton = this.$("anterior");
+
+    this.loader = {
+      loader: this.$("general-loader"),
+    };
   }
 
   $(id) {
@@ -22,4 +26,12 @@ export class View {
       seriesContainer.appendChild(element);
     });
   }
+
+  setGeneralLoader = () => {
+    this.loader.loader.style.display = "flex";
+  };
+
+  removeGeneralLoader = () => {
+    this.loader.loader.style.display = "none";
+  };
 }

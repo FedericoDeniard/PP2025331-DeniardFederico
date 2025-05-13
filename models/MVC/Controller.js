@@ -10,6 +10,7 @@ export class Controller {
   }
 
   async updateTable(isNextPage = false) {
+    this.View.setGeneralLoader();
     this.Model.initialLoad();
     const series = isNextPage
       ? await this.Model.nextPage()
@@ -18,6 +19,7 @@ export class Controller {
     const elements = series.map((s) => s.createHtmlElement());
     this.View.fillPrincipal(elements);
     this.addSaveButtonListeners(elements);
+    this.View.removeGeneralLoader();
   }
 
   async buttonListeners() {
