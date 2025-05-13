@@ -9,17 +9,81 @@ main {
   grid-template-areas:
     "header header"
     "nav    principal";
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
 header {
   grid-area: header;
+  background-color: #2196f3;
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0;
+}
+
+header h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 4px 0 0;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+header a:hover {
+  color: #666;
 }
 
 #panel-izquierda {
   grid-area: nav;
+  background-color: #fafafa;
+  padding: 16px;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+#panel-izquierda a {
+  text-decoration: none;
+  color: #2196f3;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+#panel-izquierda a:hover {
+  color: #1976d2;
 }
 
 #principal {
