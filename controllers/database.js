@@ -1,5 +1,3 @@
-import { Serie } from "../models/serie.js";
-
 class DatabaseController {
   url = "https://api.tvmaze.com/shows";
 

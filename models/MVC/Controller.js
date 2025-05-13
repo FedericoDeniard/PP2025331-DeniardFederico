@@ -1,6 +1,9 @@
+import { localStorageController } from "../../controllers/localStorage.js";
+
 export class Controller {
   View;
   Model;
+  localStorageController = localStorageController;
 
   constructor(view, model) {
     this.View = view;
@@ -12,6 +15,7 @@ export class Controller {
   async updateTable(isNextPage = false) {
     this.View.setGeneralLoader();
     this.Model.initialLoad();
+
     const series = isNextPage
       ? await this.Model.nextPage()
       : await this.Model.prevPage();
@@ -44,8 +48,7 @@ export class Controller {
             .textContent.split(":")[1]
             .trim();
           console.log("Se clickeó en la serie con ID:", id);
-          // Aquí puedes llamar a la función guardarSerie si lo deseas
-          // this.Model.guardarSerie(this.Model.series[index]);
+          this.localStorageController.addSerie(id);
         });
       } else {
         console.error("No se encontró el botón 'guardar'");
