@@ -33,7 +33,7 @@ export class Serie {
     return JSON.stringify(this);
   }
 
-  createHtmlElement() {
+  createHtmlElement(isSaved = false) {
     const div = document.createElement("div");
     div.classList.add("card");
 
@@ -69,11 +69,13 @@ export class Serie {
 
     div.appendChild(linkElement);
 
-    const saveButton = document.createElement("button");
-    saveButton.textContent = "Guardar";
-    saveButton.classList.add("card__save-button", "button");
+    const button = document.createElement("button");
+    button.textContent = isSaved ? "Eliminar" : "Guardar";
+    button.classList.add(isSaved ? "card__delete-button" : "card__save-button");
+    button.classList.add("button");
+    button.classList.add(isSaved ? "--red" : "a");
 
-    div.appendChild(saveButton);
+    div.appendChild(button);
 
     return div;
   }

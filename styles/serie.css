@@ -48,6 +48,7 @@
   margin-top: 12px;
 }
 
-.card__save-button {
+.card__save-button,
+.card__delete-button {
   margin-top: 10px;
 }

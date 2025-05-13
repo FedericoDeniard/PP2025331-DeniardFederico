@@ -30,15 +30,17 @@ export class Model {
 
   async initialLoad() {
     if (this.firstLoad) {
-      // opcional, por si querés precargar la primera página
       await this.nextPage();
       this.firstLoad = false;
     }
   }
 
+  async getSeriesById(ids) {
+    const rawSeries = await this.databaseController.fetchMultipleSeries(ids);
+    return rawSeries.map((s) => Serie.fromJsonString(JSON.stringify(s)));
+  }
+
   generateIds(startIndex, count) {
-    // TVMaze tiene IDs secuenciales del 1 al ~30000, pero algunos pueden no existir
-    // Podés filtrar o manejar errores desde el controlador
     return Array.from({ length: count }, (_, i) => startIndex + i + 1);
   }
 }
