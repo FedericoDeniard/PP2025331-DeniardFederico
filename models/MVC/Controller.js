@@ -15,7 +15,6 @@ export class Controller {
 
   async updateTable(isNextPage = false, saved = false) {
     this.View.setGeneralLoader();
-    this.Model.initialLoad();
     let elements;
 
     if (saved) {

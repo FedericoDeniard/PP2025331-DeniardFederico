@@ -3,7 +3,6 @@ import { Serie } from "../serie.js";
 
 export class Model {
   lastShowIndex = 0;
-  firstLoad = true;
   databaseController = databaseController;
 
   constructor() {}
@@ -14,6 +13,7 @@ export class Model {
 
     this.lastShowIndex += 6;
 
+    console.log(this.lastShowIndex);
     return rawSeries.map((s) => Serie.fromJsonString(JSON.stringify(s)));
   }
 
@@ -22,17 +22,9 @@ export class Model {
 
     const ids = this.generateIds(this.lastShowIndex, 6);
     const rawSeries = await this.databaseController.fetchMultipleSeries(ids);
-
-    this.lastShowIndex += 6;
+    console.log(this.lastShowIndex);
 
     return rawSeries.map((s) => Serie.fromJsonString(JSON.stringify(s)));
-  }
-
-  async initialLoad() {
-    if (this.firstLoad) {
-      await this.nextPage();
-      this.firstLoad = false;
-    }
   }
 
   async getSeriesById(ids) {
