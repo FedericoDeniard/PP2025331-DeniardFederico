@@ -19,7 +19,6 @@ export class Model {
 
   async prevPage() {
     this.lastShowIndex = Math.max(this.lastShowIndex - 12, 0);
-
     const ids = this.generateIds(this.lastShowIndex, 6);
     const rawSeries = await this.databaseController.fetchMultipleSeries(ids);
     console.log(this.lastShowIndex);
